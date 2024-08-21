@@ -935,16 +935,11 @@ function Load_Azr_TagBox_Almoxarifado(arrayComp, nomeComponente, status = '', pl
 
 function Load_Azr_Lookup_Filial2(arrayComp, nomeComponente, status = azrFramework_tipoStatus.Todos, apenasPermitidas = 0, placeholder = '', label = '', callback = null) {
     return new Promise((resolve, reject) => {
-        const fetch = (onlyData = false) => $.ajax({
+        $.ajax({
             type: 'POST',
             url: "/Componente/GetFilial",
             data: { status: status, apenasPermitidas: apenasPermitidas },
             success: function (response) {
-                if (onlyData) {
-                    resolve(response);
-                    return;
-                }
-
                 var id = `#${nomeComponente}`;
 
                 var comp = $(id).dxLookup({
@@ -968,7 +963,6 @@ function Load_Azr_Lookup_Filial2(arrayComp, nomeComponente, status = azrFramewor
                     showClearButton: true,
                     showPopupTitle: true
                 }).dxLookup("instance");
-                comp.fetchData = fetch;
 
                 arrayComp[nomeComponente] = { Type: 'dxLookup', Component: comp, Name: nomeComponente };
 
@@ -986,7 +980,6 @@ function Load_Azr_Lookup_Filial2(arrayComp, nomeComponente, status = azrFramewor
                 });
             }
         });
-        fetch();
     });
 }
 

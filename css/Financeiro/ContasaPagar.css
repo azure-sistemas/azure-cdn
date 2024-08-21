@@ -331,10 +331,6 @@ html .scroll-to-top {
     display: none !important;
 }
 
-#consultaTitulos {
+#consultaTitulos{
     display: none;
-}
-
-.min-width-button-custom{
-    min-width: 33px !important;
 }
