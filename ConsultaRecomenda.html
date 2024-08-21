@@ -1,0 +1,1460 @@
+﻿<meta name='viewport' content='width=device-width, initial-scale=1'>
+<style type="text/css">
+    @charset "utf-8"; /* CSS Document */
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,900,700italic,900italic);
+
+    * {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.2;
+        vertical-align: middle;
+    }
+
+    body {
+        background-color: #F7F7F7;
+    }
+
+    main {
+        background: #ffffff none repeat scroll 0 0;
+        color: #666666;
+        display: block;
+        float: left;
+        font-size: 0.8rem;
+        margin-left: 30px;
+        overflow: hidden;
+        padding: 1.5rem 0 0;
+        position: relative;
+        text-align: left; /*transform: scale(0.99);*/
+        transform-origin: center 3rem 0;
+        transition: transform 0.3s ease 0s;
+        width: 95%;
+    }
+
+    .bgDemonstracao {
+        background: url(https://sistemas.connectsa.com.br/cdn/imagens/bg_demonstracao.png) repeat;
+        z-index: 999999;
+        top: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    input, .card {
+        position: relative;
+        z-index: 2;
+    }
+
+    input {
+        display: block;
+        width: 26rem;
+        margin: 4.5rem 1rem 2rem;
+        border: 0;
+        font-size: 1.2rem;
+        padding: .75rem 1rem;
+        border-radius: 3px;
+        box-shadow: 0 1px 2px #aaa;
+        transition: .5s, margin-bottom .15s;
+    }
+
+    .card {
+        padding: 1rem;
+        background: white;
+        margin: 0 1rem 1rem;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    .cabecalho-resposta-informativo {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-nadaconsta {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-atencao {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-consta {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-erro {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    @keyframes fly-in-from-left {
+        from {
+            transform: translateY(15rem) rotate(15deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes fly-in-from-right {
+        from {
+            transform: translateY(15rem) rotate(-15deg);
+            opacity: 0;
+        }
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        font-weight: 200;
+        margin: 0 0 -0.3rem 0;
+    }
+
+    .h1-informativo {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-nadaconsta {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-atencao {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-consta {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-erro {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    strong {
+        font-weight: 300;
+        color: #539D00;
+    }
+
+    h2 {
+        font-size: .8rem;
+        line-height: 1.4;
+        color: gray;
+        font-weight: 400;
+        margin-left: 0.2rem;
+    }
+
+    .h2-informativo {
+    }
+
+    .h2-nadaconsta {
+    }
+
+    .h2-atencao {
+    }
+
+    .h2-consta {
+    }
+
+    .h2-erro {
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    .bloco_resposta_consulta {
+        background-color: #ffffff;
+        opacity: 0.8;
+        border: 1px dashed #2c355c;
+        margin: 20px;
+    }
+
+    .titulo_bloco_resposta_consulta {
+        color: #2c355c;
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .tabela_resposta_consulta {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-spacing: 10px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .tabela_resposta_consulta thead {
+            background-color: #cccccc;
+        }
+        /* .tabela_resposta_consulta tr:hover {  background-color: bisque; } */
+
+        .tabela_resposta_consulta th {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            font-weight: bold;
+            text-align: left;
+            background-color: #ECF1F7;
+            color: #1C4F90;
+        }
+
+        .tabela_resposta_consulta td {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+        }
+
+    .tabela_resposta_consulta_vh {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-spacing: 10px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .tabela_resposta_consulta_vh thead {
+            background-color: #cccccc;
+        }
+
+        .tabela_resposta_consulta_vh tr {
+            background-color: #FFFBEE;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        /* .tabela_resposta_consulta_vh tr:hover {  background-color: bisque; } */
+
+        .tabela_resposta_consulta_vh th {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .tabela_resposta_consulta_vh td {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+        }
+
+    .nivel_atencao_B {
+        background-color: #BFBFBF;
+        font-size: .8rem;
+        line-height: 1.4;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .nivel_atencao_M {
+        background-color: #FFFBEE;
+        font-size: .9rem;
+        line-height: 1.4;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .nivel_atencao_A {
+        background-color: #E04040;
+        font-size: .9rem;
+        line-height: 1.5;
+        font-weight: 500;
+        font-style: italic;
+        color: #FFFFFF;
+    }
+
+    .nivel_atencao_O {
+        font-size: .8rem;
+        line-height: 1.3;
+        color: gray;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .nivel_atencao_T {
+        font-size: .9rem;
+        line-height: 1.5;
+        color: gray;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .classificacao {
+        text-align: center;
+        color: #446d9d;
+        border: 1px solid #446d9d;
+        background-color: #f1f1f1;
+        padding: 5px;
+        width: 147px;
+        height: 60px;
+        font-size: .8rem;
+        margin: 10px 0;
+    }
+
+        .classificacao span {
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+    /* ===================================================================================================== */ /* Classes específicas para apresentação da TABELA DE RISCO na seção "Classificação do Risco de Crédito" */
+
+    .conn_fontSize14 {
+        font-size: 14px;
+    }
+
+    .conn_floatLeft {
+        float: left;
+    }
+
+    .conn_floatRight {
+        float: right;
+    }
+
+    .conn_padding15 {
+        padding: 15px;
+    }
+
+    .conn_classificacao-risco .conn_area-azul {
+        background-color: #347dbe;
+        border-radius: 5px;
+        color: #fff;
+        float: left;
+        font-size: 14px;
+        margin: 0 32px 0 0;
+        padding: 30px 9px;
+        position: relative;
+        width: 195px;
+    }
+
+        .conn_classificacao-risco .conn_area-azul .conn_triangulo {
+            position: absolute;
+            right: -11px;
+            top: 23px;
+        }
+
+    #conn_popupClassificacaoDoRiscoDeCreditoEmpresas {
+        background-color: #fff;
+    }
+
+        #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco {
+            padding: 15px;
+        }
+
+            #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_area-azul {
+                background-color: #347dbe;
+                border-radius: 5px;
+                color: #fff;
+                float: left;
+                font-size: 14px;
+                padding: 10px 9px;
+                position: relative;
+                width: 180px;
+            }
+
+                #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_area-azul .conn_titulo {
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-bottom: 1px solid #fff;
+                    padding: 0 0 5px;
+                    width: 100%;
+                    float: left;
+                    color: #fff;
+                }
+
+                #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_area-azul .conn_triangulo {
+                    position: absolute;
+                    right: -11px;
+                    top: 23px;
+                }
+
+            #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_tabela-classificacao-risco {
+                float: right;
+            }
+
+        #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_barra {
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            background-color: #e8e8e8;
+        }
+
+        #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_conceitoInadimplencia {
+            background-color: #fafafa;
+            display: none;
+        }
+
+            #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_conceitoInadimplencia .conn_tableModelo {
+                border-spacing: 2px;
+                border-collapse: separate;
+                border: 0;
+                margin-top: 5px;
+            }
+
+                #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_conceitoInadimplencia .conn_tableModelo td {
+                    border: 0;
+                }
+    /* ===================================================================================================== */
+
+    .conn_bg_barra {
+        width: 100%;
+        height: 30px;
+        float: left;
+        margin: 2px 0;
+        background-color: #284D7D;
+        text-align: left;
+        color: #F00;
+    }
+
+    .conn_barra1 {
+        color: #FFF;
+        height: 30px;
+        text-align: right;
+        position: relative;
+        border-right: -20px;
+        background-color: #C5D3E3;
+        line-height: 30px;
+    }
+
+        .conn_barra1:after {
+            color: #000;
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #000;
+            bottom: -10px;
+            right: -10px;
+        }
+
+    .conn_div_circulo {
+        text-align: center;
+        margin: auto;
+    }
+
+    .conn_circulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto auto auto;
+        padding: 10px;
+        width: 110px;
+        min-height: 60px;
+        border: 2px solid #46716a;
+        border-radius: 20px;
+        background-color: #91b9b2;
+    }
+
+    .conn_faixas {
+        margin: auto;
+        width: 240px;
+        padding-left: 6px;
+        font-size: 0.75rem;
+    }
+
+        .conn_faixas .conn_linha_valor {
+            margin: 0px 0px 1px;
+            float: left;
+        }
+
+            .conn_faixas .conn_linha_valor span {
+                float: left
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor {
+                width: 80px
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor_a {
+                width: 18px;
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor_barra_inativa {
+                width: 50px;
+                border-bottom: 9px solid #e9e9e9;
+                border-top: 9px solid #e9e9e9;
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor_barra_ativa {
+                width: 50px;
+                border-bottom: 9px solid #46716a;
+                border-top: 9px solid #46716a;
+            }
+
+    .conn_valor_seta_esquerda {
+        margin: 0px 0px 0px -7px;
+        border-bottom: 9px solid transparent;
+        border-right: 7px solid #46716a;
+        border-top: 9px solid transparent;
+    }
+    /* Customizações para deixar a resposta da consulta mais parecida com o layout original da Serasa */
+
+    h1#QUADRO_ENTRADA-H1 {
+        display: none;
+    }
+
+    table#QUADRO_ENTRADA-T1 th {
+        background-color: #ECF1F7;
+    }
+
+    .cabecalho-resposta-informativo h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-nadaconsta h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-atencao h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-consta h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-erro h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .icone-interpretacao img {
+        width: 6%;
+    }
+
+    .info_recomenda {
+        width: 30%;
+        margin: 5px;
+        display: table-cell;
+        border-right: 1px solid #ccc;
+    }
+
+    .limite_recomenda {
+        color: #FFF;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 10px
+    }
+
+    .container_risco_recomenda {
+        width: 100%;
+        height: 110px;
+    }
+
+    .info_risco_recomenda {
+        float: left;
+        width: 2%;
+        height: 100%
+    }
+
+    .valor_risco_recomenda {
+        float: left;
+        width: 49%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .img_risco_recomenda {
+        width: 80%;
+    }
+
+    .detalhe_risco_recomenda {
+        float: left;
+        width: 49%;
+        height: 100%;
+    }
+    /*CSS para impressão*/
+
+    @media print {
+        * {
+            background: transparent !important;
+            color: #000 !important;
+            text-shadow: none !important;
+            filter: none !important;
+            -ms-filter: none !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.4em;
+        }
+
+        main { /*transform: scale(0.9);*/
+        }
+
+        .scFormToolbar {
+            display: none;
+        }
+
+        .card {
+            margin: 0 0.6rem 0.1rem;
+        }
+
+        .scFormBorder {
+            border: 0;
+        }
+    }
+    /* Small Sizes */
+
+    @media (max-width: 767px) {
+        main {
+            margin: 0 !important;
+            padding: 0 !important;
+            transform: none !important;
+            width: 100% !important;
+        }
+
+        .card {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .table_responsive {
+            overflow: auto;
+            width: 100%;
+        }
+
+        td {
+            padding: 4px !important;
+            font-size: 0.8rem !important;
+        }
+
+        th {
+            padding: 4px !important;
+            font-size: 0.8rem !important;
+        }
+
+        h1 {
+            font-size: 1.2rem !important;
+            margin-top: 20px !important;
+        }
+
+        .conn_div_circulo {
+            transform: scale(0.8);
+        }
+
+        .bgDemonstracao {
+            background: url(https://sistemas.connectsa.com.br/cdn/imagens/abademonstracao2.png) no-repeat !important;
+            position: fixed !important;
+            top: 100px !important;
+            left: 0 !important;
+            width: 36px !important;
+            height: 195px !important;
+        }
+
+        .nivel_atencao_A {
+            display: block !important;
+        }
+
+        .info_recomenda {
+            width: 90%;
+            display: block;
+            border-right: 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .limite_recomenda {
+            padding: 5px
+        }
+
+        .container_risco_recomenda {
+            height: auto;
+        }
+
+        .info_risco_recomenda {
+            width: 100%;
+            height: 10px;
+        }
+
+        .valor_risco_recomenda {
+            width: 100%;
+            height: auto;
+        }
+
+        .detalhe_risco_recomenda {
+            width: 100%;
+            height: auto;
+        }
+
+        .img_risco_recomenda {
+            width: 60%;
+        }
+    }
+</style>
+<script>function showHideTabelaRisco() { var sDiv = document.getElementById('conn_popupClassificacaoDoRiscoDeCreditoEmpresas'); if (sDiv.style.display == "none") { sDiv.style.display = "block"; sDiv.style.padding = "100px"; } else { sDiv.style.display = "none"; sDiv.style.padding = "0px"; } } function showHideTabelaScore() { var sDiv = document.getElementById('conn_popupSerasaScoreEmpresas'); if (sDiv.style.display == "none") { sDiv.style.display = "block"; sDiv.style.padding = "100px"; } else { sDiv.style.display = "none"; sDiv.style.padding = "0px"; } } function showHideTabelaScoreSetor() { var sDiv = document.getElementById('conn_popupSerasaScoreSetor'); if (sDiv.style.display == "none") { sDiv.style.display = "block"; sDiv.style.padding = "100px"; } else { sDiv.style.display = "none"; sDiv.style.padding = "0px"; } }</script>       <div id='divRespostaConsulta'>     <meta name='viewport' content='width=device-width, initial-scale=1'>
+<style type="text/css">
+    @charset "utf-8"; /* CSS Document */
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,900,700italic,900italic);
+
+    * {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.2;
+        vertical-align: middle;
+    }
+
+    body {
+        background-color: #F7F7F7;
+    }
+
+    main {
+        background: #ffffff none repeat scroll 0 0;
+        color: #666666;
+        display: block;
+        float: left;
+        font-size: 0.8rem;
+        margin-left: 30px;
+        overflow: hidden;
+        padding: 1.5rem 0 0;
+        position: relative;
+        text-align: left; /*transform: scale(0.99);*/
+        transform-origin: center 3rem 0;
+        transition: transform 0.3s ease 0s;
+        width: 95%;
+    }
+
+    .bgDemonstracao {
+        background: url(https://sistemas.connectsa.com.br/cdn/imagens/bg_demonstracao.png) repeat;
+        z-index: 999999;
+        top: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    input, .card {
+        position: relative;
+        z-index: 2;
+    }
+
+    input {
+        display: block;
+        width: 26rem;
+        margin: 4.5rem 1rem 2rem;
+        border: 0;
+        font-size: 1.2rem;
+        padding: .75rem 1rem;
+        border-radius: 3px;
+        box-shadow: 0 1px 2px #aaa;
+        transition: .5s, margin-bottom .15s;
+    }
+
+    .card {
+        padding: 1rem;
+        background: white;
+        margin: 0 1rem 1rem;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    .cabecalho-resposta-informativo {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-nadaconsta {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-atencao {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-consta {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .cabecalho-resposta-erro {
+        background-size: 100%;
+        color: #A7763C;
+        border-bottom: 1px solid #CDCDCD;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    @keyframes fly-in-from-left {
+        from {
+            transform: translateY(15rem) rotate(15deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes fly-in-from-right {
+        from {
+            transform: translateY(15rem) rotate(-15deg);
+            opacity: 0;
+        }
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        font-weight: 200;
+        margin: 0 0 -0.3rem 0;
+    }
+
+    .h1-informativo {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-nadaconsta {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-atencao {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-consta {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    .h1-erro {
+        padding: 2px;
+        color: #A7763C;
+        background: #FFFFFF;
+    }
+
+    strong {
+        font-weight: 300;
+        color: #539D00;
+    }
+
+    h2 {
+        font-size: .8rem;
+        line-height: 1.4;
+        color: gray;
+        font-weight: 400;
+        margin-left: 0.2rem;
+    }
+
+    .h2-informativo {
+    }
+
+    .h2-nadaconsta {
+    }
+
+    .h2-atencao {
+    }
+
+    .h2-consta {
+    }
+
+    .h2-erro {
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    .bloco_resposta_consulta {
+        background-color: #ffffff;
+        opacity: 0.8;
+        border: 1px dashed #2c355c;
+        margin: 20px;
+    }
+
+    .titulo_bloco_resposta_consulta {
+        color: #2c355c;
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .tabela_resposta_consulta {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-spacing: 10px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .tabela_resposta_consulta thead {
+            background-color: #cccccc;
+        }
+        /* .tabela_resposta_consulta tr:hover {  background-color: bisque; } */
+
+        .tabela_resposta_consulta th {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            font-weight: bold;
+            text-align: left;
+            background-color: #ECF1F7;
+            color: #1C4F90;
+        }
+
+        .tabela_resposta_consulta td {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+        }
+
+    .tabela_resposta_consulta_vh {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-spacing: 10px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .tabela_resposta_consulta_vh thead {
+            background-color: #cccccc;
+        }
+
+        .tabela_resposta_consulta_vh tr {
+            background-color: #FFFBEE;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        /* .tabela_resposta_consulta_vh tr:hover {  background-color: bisque; } */
+
+        .tabela_resposta_consulta_vh th {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .tabela_resposta_consulta_vh td {
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+        }
+
+    .nivel_atencao_B {
+        background-color: #BFBFBF;
+        font-size: .8rem;
+        line-height: 1.4;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .nivel_atencao_M {
+        background-color: #FFFBEE;
+        font-size: .9rem;
+        line-height: 1.4;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .nivel_atencao_A {
+        background-color: #E04040;
+        font-size: .9rem;
+        line-height: 1.5;
+        font-weight: 500;
+        font-style: italic;
+        color: #FFFFFF;
+    }
+
+    .nivel_atencao_O {
+        font-size: .8rem;
+        line-height: 1.3;
+        color: gray;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .nivel_atencao_T {
+        font-size: .9rem;
+        line-height: 1.5;
+        color: gray;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .classificacao {
+        text-align: center;
+        color: #446d9d;
+        border: 1px solid #446d9d;
+        background-color: #f1f1f1;
+        padding: 5px;
+        width: 147px;
+        height: 60px;
+        font-size: .8rem;
+        margin: 10px 0;
+    }
+
+        .classificacao span {
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+    /* ===================================================================================================== */ /* Classes específicas para apresentação da TABELA DE RISCO na seção "Classificação do Risco de Crédito" */
+
+    .conn_fontSize14 {
+        font-size: 14px;
+    }
+
+    .conn_floatLeft {
+        float: left;
+    }
+
+    .conn_floatRight {
+        float: right;
+    }
+
+    .conn_padding15 {
+        padding: 15px;
+    }
+
+    .conn_classificacao-risco .conn_area-azul {
+        background-color: #347dbe;
+        border-radius: 5px;
+        color: #fff;
+        float: left;
+        font-size: 14px;
+        margin: 0 32px 0 0;
+        padding: 30px 9px;
+        position: relative;
+        width: 195px;
+    }
+
+        .conn_classificacao-risco .conn_area-azul .conn_triangulo {
+            position: absolute;
+            right: -11px;
+            top: 23px;
+        }
+
+    #conn_popupClassificacaoDoRiscoDeCreditoEmpresas {
+        background-color: #fff;
+    }
+
+        #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco {
+            padding: 15px;
+        }
+
+            #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_area-azul {
+                background-color: #347dbe;
+                border-radius: 5px;
+                color: #fff;
+                float: left;
+                font-size: 14px;
+                padding: 10px 9px;
+                position: relative;
+                width: 180px;
+            }
+
+                #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_area-azul .conn_titulo {
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-bottom: 1px solid #fff;
+                    padding: 0 0 5px;
+                    width: 100%;
+                    float: left;
+                    color: #fff;
+                }
+
+                #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_area-azul .conn_triangulo {
+                    position: absolute;
+                    right: -11px;
+                    top: 23px;
+                }
+
+            #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_classificacao-risco .conn_tabela-classificacao-risco {
+                float: right;
+            }
+
+        #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_barra {
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            background-color: #e8e8e8;
+        }
+
+        #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_conceitoInadimplencia {
+            background-color: #fafafa;
+            display: none;
+        }
+
+            #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_conceitoInadimplencia .conn_tableModelo {
+                border-spacing: 2px;
+                border-collapse: separate;
+                border: 0;
+                margin-top: 5px;
+            }
+
+                #conn_popupClassificacaoDoRiscoDeCreditoEmpresas .conn_conceitoInadimplencia .conn_tableModelo td {
+                    border: 0;
+                }
+    /* ===================================================================================================== */
+
+    .conn_bg_barra {
+        width: 100%;
+        height: 30px;
+        float: left;
+        margin: 2px 0;
+        background-color: #284D7D;
+        text-align: left;
+        color: #F00;
+    }
+
+    .conn_barra1 {
+        color: #FFF;
+        height: 30px;
+        text-align: right;
+        position: relative;
+        border-right: -20px;
+        background-color: #C5D3E3;
+        line-height: 30px;
+    }
+
+        .conn_barra1:after {
+            color: #000;
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #000;
+            bottom: -10px;
+            right: -10px;
+        }
+
+    .conn_div_circulo {
+        text-align: center;
+        margin: auto;
+    }
+
+    .conn_circulo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto auto auto;
+        padding: 10px;
+        width: 110px;
+        min-height: 60px;
+        border: 2px solid #46716a;
+        border-radius: 20px;
+        background-color: #91b9b2;
+    }
+
+    .conn_faixas {
+        margin: auto;
+        width: 240px;
+        padding-left: 6px;
+        font-size: 0.75rem;
+    }
+
+        .conn_faixas .conn_linha_valor {
+            margin: 0px 0px 1px;
+            float: left;
+        }
+
+            .conn_faixas .conn_linha_valor span {
+                float: left
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor {
+                width: 80px
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor_a {
+                width: 18px;
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor_barra_inativa {
+                width: 50px;
+                border-bottom: 9px solid #e9e9e9;
+                border-top: 9px solid #e9e9e9;
+            }
+
+            .conn_faixas .conn_linha_valor .conn_valor_barra_ativa {
+                width: 50px;
+                border-bottom: 9px solid #46716a;
+                border-top: 9px solid #46716a;
+            }
+
+    .conn_valor_seta_esquerda {
+        margin: 0px 0px 0px -7px;
+        border-bottom: 9px solid transparent;
+        border-right: 7px solid #46716a;
+        border-top: 9px solid transparent;
+    }
+    /* Customizações para deixar a resposta da consulta mais parecida com o layout original da Serasa */
+
+    h1#QUADRO_ENTRADA-H1 {
+        display: none;
+    }
+
+    table#QUADRO_ENTRADA-T1 th {
+        background-color: #ECF1F7;
+    }
+
+    .cabecalho-resposta-informativo h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-nadaconsta h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-atencao h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-consta h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .cabecalho-resposta-erro h3 {
+        color: #A7763C;
+        margin-bottom: 2px;
+    }
+
+    .icone-interpretacao img {
+        width: 6%;
+    }
+
+    .info_recomenda {
+        width: 30%;
+        margin: 5px;
+        display: table-cell;
+        border-right: 1px solid #ccc;
+    }
+
+    .limite_recomenda {
+        color: #FFF;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 10px
+    }
+
+    .container_risco_recomenda {
+        width: 100%;
+        height: 110px;
+    }
+
+    .info_risco_recomenda {
+        float: left;
+        width: 2%;
+        height: 100%
+    }
+
+    .valor_risco_recomenda {
+        float: left;
+        width: 49%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .img_risco_recomenda {
+        width: 80%;
+    }
+
+    .detalhe_risco_recomenda {
+        float: left;
+        width: 49%;
+        height: 100%;
+    }
+    /*CSS para impressão*/
+
+    @media print {
+        * {
+            background: transparent !important;
+            color: #000 !important;
+            text-shadow: none !important;
+            filter: none !important;
+            -ms-filter: none !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.4em;
+        }
+
+        main { /*transform: scale(0.9);*/
+        }
+
+        .scFormToolbar {
+            display: none;
+        }
+
+        .card {
+            margin: 0 0.6rem 0.1rem;
+        }
+
+        .scFormBorder {
+            border: 0;
+        }
+    }
+    /* Small Sizes */
+
+    @media (max-width: 767px) {
+        main {
+            margin: 0 !important;
+            padding: 0 !important;
+            transform: none !important;
+            width: 100% !important;
+        }
+
+        .card {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .table_responsive {
+            overflow: auto;
+            width: 100%;
+        }
+
+        td {
+            padding: 4px !important;
+            font-size: 0.8rem !important;
+        }
+
+        th {
+            padding: 4px !important;
+            font-size: 0.8rem !important;
+        }
+
+        h1 {
+            font-size: 1.2rem !important;
+            margin-top: 20px !important;
+        }
+
+        .conn_div_circulo {
+            transform: scale(0.8);
+        }
+
+        .bgDemonstracao {
+            background: url(https://sistemas.connectsa.com.br/cdn/imagens/abademonstracao2.png) no-repeat !important;
+            position: fixed !important;
+            top: 100px !important;
+            left: 0 !important;
+            width: 36px !important;
+            height: 195px !important;
+        }
+
+        .nivel_atencao_A {
+            display: block !important;
+        }
+
+        .info_recomenda {
+            width: 90%;
+            display: block;
+            border-right: 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .limite_recomenda {
+            padding: 5px
+        }
+
+        .container_risco_recomenda {
+            height: auto;
+        }
+
+        .info_risco_recomenda {
+            width: 100%;
+            height: 10px;
+        }
+
+        .valor_risco_recomenda {
+            width: 100%;
+            height: auto;
+        }
+
+        .detalhe_risco_recomenda {
+            width: 100%;
+            height: auto;
+        }
+
+        .img_risco_recomenda {
+            width: 60%;
+        }
+    }
+</style>     <main @@@MAIN@@@>      <div style="margin: 15px;">       <img src="https://sistemas.connectsa.com.br/cdn/imagens/logo_connectserasa_2022_respostaconsulta.png" width="300">      </div>      <section class="card cabecalho-resposta-informativo">       <h3>        Recomendação de Crédito       </h3>      </section>        <section class="card" id="Recomendacao-S">          <h1 class="h1-informativo" id="Recomendacao-H1"></h1>          <h2 class="h2-informativo" id="Recomendacao-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="Recomendacao-T1">          <thead>                    </thead>          <tbody>          <tr><td style='border-right: 0'>Recomendação de crédito para<br /><div style='font-size: 1.2rem; color: #1C4F90; margin: 10px 0; font-weight: bold'>COOPAVEL COOPERATIVA AGROINDUSTRIAL</div>Gerado em: 10/08/2023 08:09:19</td><td align='center' style='border-right: 0'>CNPJ<br /><span style='padding: 2px; color: #1C4F90; font-weight: bold'>76.098.219/0001-37</span></td><td align='center' style='border-right: 0'>Valor da Operação<br /><span style='padding: 2px; color: #1C4F90; font-weight: bold'>R$ 1.000,00</span></td><td align='center'>Tipo de Cliente<br /><span style='padding: 2px; color: #1C4F90; font-weight: bold'>Cliente Novo</span></td></tr>                    </tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo"></h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="Risco-S">          <h1 class="h1-informativo" id="Risco-H1"></h1>          <h2 class="h2-informativo" id="Risco-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="Risco-T1">          <thead>                    </thead>          <tbody>          <tr><td style='padding: 0'><div class='container_risco_recomenda'><div class='info_risco_recomenda' style='background-color:#00913D'></div><div class='valor_risco_recomenda'><br /><img src='https://sistemas.connectsa.com.br/cdn/imagens/recomenda_escala_02.gif' class='img_risco_recomenda' /></div><div class='detalhe_risco_recomenda'><div style='float: left;'><br /><br /><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_recomenda_aprovado.png' width='48' /></div><div style='margin: 5px;'><br /><br /><span style='color:#00913D; font-weight: bold'>Recomendação Positiva</span><br />De acordo com o perfil do cliente, negociação a prazo pode ser recomendada.</div></div></div></td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="-S">          <h1 class="h1-informativo" id="-H1"></h1>          <h2 class="h2-informativo" id="-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="-T1">          <thead>                    </thead>          <tbody>          <tr><td><div class='info_recomenda'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td style='border: none !important; width: 50%'><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_green_check.png' width='16' style='float: left; margin-right: 5px' />CNPJ Ativo</td><td style='border: none !important; width: 50%'><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_green_check.png' width='16' style='float: left; margin-right: 5px' />Tempo de fundação</td><tr><td style='border: none !important; width: 50%'><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_green_check.png' width='16' style='float: left; margin-right: 5px' />Status da Receita</td><td style='border: none !important; width: 50%'><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_green_check.png' width='16' style='float: left; margin-right: 5px' />Sem restritivo ativo</td></tr><tr><td colspan='2' align='center' style='border: none !important;'><b>Critérios Analisados*<b></td></tr></tbody></table></div><div class='info_recomenda'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td align='center' style='border: none !important'><span style='background-color: #00913D' class='limite_recomenda'>R$ 25.000,00</span></td></tr><tr><td colspan='2' align='center' style='border: none !important;'><b>Limite Sugerido**<b></td></tr></tbody></table></div><div class='info_recomenda'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td align='center' style='border: none !important; font-size: 1.2rem; color: #1C4F90'><b>Negocie a prazo;<br /> Ofereça boas condições de parcelamento<br /> e ações de fidelização, retenção e promoção</b></td></tr><tr><td colspan='2' align='center' style='border: none !important;'><b>Recomendação<b></td></tr></tbody></table></div></td></tr>          <tr><td style='text-align:left;' colspan='2' class='nivel_atencao_O'>*Os critérios analisados podem variar de acordo com o perfil do cliente.<br />**Limite sugerido foi calculado com base em referencias de negócios ponderando pela classificação de risco de crédito da empresa medida pelas tecnologias de ratings e scorings.</td></tr>          </tbody>          </table>          </div>         </section><section class="card" id="-S">          <h1 class="h1-informativo" id="-H1"></h1>          <h2 class="h2-informativo" id="-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="-T1">          <thead>                    </thead>          <tbody>          <tr><td width='35px' align='center'><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_atencao_circular.png' width='24' /></td><td style='font-weight:normal'><b>Lembre-se: Sempre avalie se a parcela cabe no bolso do cliente, para isso sugerimos que antes de realizar a operação solicite:</b><br /><br />Opcionalmente pode ser válido:<br /><br />&bull; Localização: esse dado pode contribuir para verificar a existência da empresa e entrar em contato, caso ocorram problemas de pagamento;<br />&bull; Referências bancárias e comerciais;<br />&bull; Informações cadastrais: recomenda-se sempre manter o cadastro do cliente atualizado.<br /></td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="-S">          <h1 class="h1-informativo" id="-H1"></h1>          <h2 class="h2-informativo" id="-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="-T1">          <thead>                    </thead>          <tbody>          <tr><td width='35px' align='center'><img src='https://cdn-connectsa.s3.sa-east-1.amazonaws.com/img/icon/icon_atencao_triangular.png' width='24' /></td><td style='font-weight:normal'>O resultado do Serasa Recomenda não é uma opinião ou sugestão Serasa Experian, representando apenas a prática de mercado apurada a partir de análises estatísticas que consideram informações constantes em sua base de dados. A avaliação do crédito, a decisão de concessão e a obstinação de outras informações para a completude da análise são de responsabilidade exclusiva do cliente.</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section><section class="card" id="Identificacao-S">          <h1 class="h1-informativo" id="Identificacao-H1">Identificação Cadastral</h1>          <h2 class="h2-informativo" id="Identificacao-H2">Consulta realizada pela SERASA EXPERIAN através dos sistemas informatizados da SERASA EXPERIAN. As informações contidas neste documento são apresentadas conforme obtidas das respectivas fontes, não havendo qualquer espécie de modificação em seu conteúdo por parte da SERASA EXPERIAN.</h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="Identificacao-T1">          <tbody>          <tr><th width="30%">Razão Social:</th><td>COOPAVEL COOPERATIVA AGROINDUSTRIAL</td></tr><tr><th width="30%">Situação Cadastral:</th><td>ATIVA</td></tr><tr><th width="30%">Data de Fundação:</th><td>11/03/1971</td></tr>                    </tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo">Sócios e Administradores</h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="QuadroSocietarioCompleto-S">          <h1 class="h1-informativo" id="QuadroSocietarioCompleto-H1">Informações Societárias</h1>          <h2 class="h2-informativo" id="QuadroSocietarioCompleto-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="QuadroSocietarioCompleto-T1">          <thead>          <tr><th style="text-align:left;">Documento</th><th style="text-align:left;">Nome</th><th style="text-align:left;">Cargo</th><th style="text-align:left;">Vínculo</th><th style="text-align:center;">Entrada</th><th style="text-align:center;">Fundação</th><th style="text-align:center;">Início Mandato</th><th style="text-align:center;">Fim Mandato</th><th style="text-align:right;">Capital Votante</th><th style="text-align:right;">Capital Total</th></tr>          </thead>          <tbody>          <tr><td style="text-align:left;">153.229.129-91</td><td style="text-align:left;">DILVO GROLLI</td><td style="text-align:left;">D PRES</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">175.303.269-53</td><td style="text-align:left;">JEOMAR TRIVILIN</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">880.428.129-49</td><td style="text-align:left;">VALMIR CRISTIANO DALGALO</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">825.858.068-04</td><td style="text-align:left;">ERWIN SOLIVA</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">757.300.909-78</td><td style="text-align:left;">DILMAR ZANINI</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">746.361.469-72</td><td style="text-align:left;">JEAN ADAO GRASSI</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">715.349.629-72</td><td style="text-align:left;">MARCIA ARNOLD DAGA</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">663.310.649-15</td><td style="text-align:left;">OSMAR MACCARI</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">467.152.909-20</td><td style="text-align:left;">GERALDO TOMAZI</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr><tr><td style="text-align:left;">369.421.469-00</td><td style="text-align:left;">CARLOS CASTOLDI</td><td style="text-align:left;">DIRETOR</td><td style="text-align:left;">ADMINISTRADOR(A)</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">/12/0002</td><td style="text-align:center;">/12/0002</td><td style="text-align:right;">0,00%</td><td style="text-align:right;">0,00%</td></tr>          </tbody>          </table>          </div>          <div class="table_responsive">          <table class="tabela_resposta_consulta_vh" id="QuadroSocietarioCompleto-T2">          <tbody>          <tr><td>Total: 10&nbsp;&nbsp;&nbsp;</td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="QuadroSocietarioCompletoEndereco-S">          <h1 class="h1-informativo" id="QuadroSocietarioCompletoEndereco-H1">Informações Pessoais</h1>          <h2 class="h2-informativo" id="QuadroSocietarioCompletoEndereco-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="QuadroSocietarioCompletoEndereco-T1">          <thead>          <tr><th style="text-align:left;">Documento</th><th style="text-align:left;">Nome</th><th style="text-align:left;">Telefone</th><th style="text-align:left;">Endereço</th><th style="text-align:left;">Bairro</th><th style="text-align:left;">Cidade</th><th style="text-align:left;">UF</th><th style="text-align:left;">CEP</th><th style="text-align:left;">Nacionalidade</th><th style="text-align:left;">Estado Civil</th></tr>          </thead>          <tbody>          <tr><td style="text-align:left;">153.229.129-91</td><td style="text-align:left;">DILVO GROLLI</td><td style="text-align:left;">(45) 3327-2000</td><td style="text-align:left;">COL CIELITO S/N</td><td style="text-align:left;">GLEBA 1</td><td style="text-align:left;">CASCAVEL</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">CASADO</td></tr><tr><td style="text-align:left;">175.303.269-53</td><td style="text-align:left;">JEOMAR TRIVILIN</td><td style="text-align:left;">823000</td><td style="text-align:left;">LINHA SAO JOAO S/N ZONA RURAL</td><td style="text-align:left;">SAO JOAO D</td><td style="text-align:left;">CASCAVEL</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">CASADO</td></tr><tr><td style="text-align:left;">880.428.129-49</td><td style="text-align:left;">VALMIR CRISTIANO DALGALO</td><td style="text-align:left;">822000</td><td style="text-align:left;">ESPIGAO AZUL S/N AREA RURAL</td><td style="text-align:left;">ESPIGAO AZUL</td><td style="text-align:left;">CASCAVEL</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;">825.858.068-04</td><td style="text-align:left;">ERWIN SOLIVA</td><td style="text-align:left;">350000</td><td style="text-align:left;">PAIQUERE S/N</td><td style="text-align:left;">RIO DA PRATA</td><td style="text-align:left;">NOVA LARANJEIRAS</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">CASADO</td></tr><tr><td style="text-align:left;">757.300.909-78</td><td style="text-align:left;">DILMAR ZANINI</td><td style="text-align:left;">470000</td><td style="text-align:left;">REAS VARGUINHAS S/N</td><td style="text-align:left;">ZONA RURAL</td><td style="text-align:left;">CATANDUVAS</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">0</td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;">746.361.469-72</td><td style="text-align:left;">JEAN ADAO GRASSI</td><td style="text-align:left;">400000</td><td style="text-align:left;">GUAPORE S/N</td><td style="text-align:left;">0</td><td style="text-align:left;">GUARANIACU</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">0</td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;">715.349.629-72</td><td style="text-align:left;">MARCIA ARNOLD DAGA</td><td style="text-align:left;">822000</td><td style="text-align:left;">SEDE ALVORADA S/N</td><td style="text-align:left;">SEDE ALVORADA</td><td style="text-align:left;">CASCAVEL</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;">663.310.649-15</td><td style="text-align:left;">OSMAR MACCARI</td><td style="text-align:left;">845000</td><td style="text-align:left;">TRES COROA S/N TRES COROA</td><td style="text-align:left;">ZONA RURAL</td><td style="text-align:left;">VERA CRUZ DO OESTE</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">CASADO</td></tr><tr><td style="text-align:left;">467.152.909-20</td><td style="text-align:left;">GERALDO TOMAZI</td><td style="text-align:left;">485000</td><td style="text-align:left;">LINHA SAO PAULO S/N C</td><td style="text-align:left;">L SAO PAULO</td><td style="text-align:left;">TRES BARRAS DO PARANA</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">CASADO</td></tr><tr><td style="text-align:left;">369.421.469-00</td><td style="text-align:left;">CARLOS CASTOLDI</td><td style="text-align:left;">790000</td><td style="text-align:left;">LINHA VISTA ALEGRE S/N</td><td style="text-align:left;">0</td><td style="text-align:left;">CAPITAO LEONIDAS MARQUES</td><td style="text-align:left;">PR</td><td style="text-align:left;"></td><td style="text-align:left;">BRASIL</td><td style="text-align:left;">CASADO</td></tr>          </tbody>          </table>          </div>          <div class="table_responsive">          <table class="tabela_resposta_consulta_vh" id="QuadroSocietarioCompletoEndereco-T2">          <tbody>          <tr><td>Total: 10&nbsp;&nbsp;&nbsp;</td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="QuadroSocietarioCompletoAnotacoes-S">          <h1 class="h1-informativo" id="QuadroSocietarioCompletoAnotacoes-H1">Anotações Negativas</h1>          <h2 class="h2-informativo" id="QuadroSocietarioCompletoAnotacoes-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="QuadroSocietarioCompletoAnotacoes-T1">          <thead>          <tr><th style="text-align:left;">Documento</th><th style="text-align:left;">Nome</th><th style="text-align:center;">Pefin</th><th style="text-align:center;">Refin</th><th style="text-align:center;">Protesto</th><th style="text-align:center;">Ação Judicial</th><th style="text-align:center;">Cheque Sustado</th><th style="text-align:center;">Cheque sem Fundos</th><th style="text-align:center;">Falência</th><th style="text-align:center;">Dívida Vencida</th></tr>          </thead>          <tbody>          <tr><td style="text-align:left;">153.229.129-91</td><td style="text-align:left;">DILVO GROLLI</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">175.303.269-53</td><td style="text-align:left;">JEOMAR TRIVILIN</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">880.428.129-49</td><td style="text-align:left;">VALMIR CRISTIANO DALGALO</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">825.858.068-04</td><td style="text-align:left;">ERWIN SOLIVA</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">757.300.909-78</td><td style="text-align:left;">DILMAR ZANINI</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">746.361.469-72</td><td style="text-align:left;">JEAN ADAO GRASSI</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">715.349.629-72</td><td style="text-align:left;">MARCIA ARNOLD DAGA</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">663.310.649-15</td><td style="text-align:left;">OSMAR MACCARI</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">467.152.909-20</td><td style="text-align:left;">GERALDO TOMAZI</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr><tr><td style="text-align:left;">369.421.469-00</td><td style="text-align:left;">CARLOS CASTOLDI</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr>          </tbody>          </table>          </div>          <div class="table_responsive">          <table class="tabela_resposta_consulta_vh" id="QuadroSocietarioCompletoAnotacoes-T2">          <tbody>          <tr><td>Total: 10&nbsp;&nbsp;&nbsp;</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section><section class="card" id="Score-S">          <h1 class="h1-informativo" id="Score-H1">Score Empresas</h1>          <h2 class="h2-informativo" id="Score-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="Score-T1">          <thead>                    </thead>          <tbody>
+<style>
+    .conn_score_serasa {
+        background-image: url(https://sistemas.connectsa.com.br/cdn/imagens/scorerpm_10.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        text-align: center;
+        vertical-align: middle;
+        font-family: Verdana,Arial;
+        font-size: 16px;
+        color: #828281;
+        margin: 20px;
+    }
+
+    @media print {
+        .conn_score_serasa {
+            background-image: url(https://sistemas.connectsa.com.br/cdn/imagens/scorerpm_10.png) !important;
+            background-size: 100% !important;
+            background-repeat: no-repeat !important;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+</style><tr><td width='25%' align='center'><table width='50%' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td style='border: none !important;'><div style='width:150px; height:200px;' class='conn_score_serasa'><br><br>Score<br><span style='font-size: 30px;'>476</span><br><br><br><br><br><span style='font-size:1.3rem; font-weight:500;'>Risco Baixo</span></div></td></tr></tbody></table></td><td class='nivel_atencao_O'><span style='font-style:normal; font-size:1.3rem; font-weight:500;'>A pontuação enquadra-se na faixa de 451 a 500 e representa risco baixo de crédito. Para empresas com este perfil de risco, é prática de mercado conceder crédito para compras de mercadorias ou serviços sem necessidades de garantias adicionais. Em média, empresas com esta categoria de risco costumam honrar os compromissos assumidos em 98,63%.</span></td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="Faturamento-S">          <h1 class="h1-informativo" id="Faturamento-H1">Faturamento Estimado</h1>          <h2 class="h2-informativo" id="Faturamento-H2">Esta estimativa é baseada nas melhores práticas e modelos estatísticos, mas pode não refletir o faturamento real da empresa consultada.</h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="Faturamento-T1">          <thead>                    </thead>          <tbody>          <tr><td width='25%' align='center'><table width='100%' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td style='border: none !important;'><div style='width:200px; height:100px;' class='conn_circulo'><span style='font-family:' Roboto',sans-serif; font-size:1.2rem; font-weight:500; text-align:center; color:#3a3a39;'>acima de<br>R$ 1.500.000.000,00<br>ao ano</span></div></td></tr></tbody></table></td><td class='nivel_atencao_O'><span style='font-style:normal; font-size:1.3rem; font-weight:500;'>O resultado é calculado por meio de técnicas estatísticas que utilizam informações cadastrais e comportamentais da empresa.</span></td></tr>          <tr><td style='text-align:left;' colspan='7' class='nivel_atencao_O'>A decisão de aprovação ou não do crédito é de exclusiva responsabilidade do concedente. As informações prestadas pela Serasa Experian têm como objetivo subsidiar essas decisões e, em hipótese alguma, devem ser utilizadas como justificativas, pelo concedente do crédito, para a tomada da referida decisão. </td></tr>          </tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo">Anotações Completas</h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="AnotacoesCompletas-S">          <h1 class="h1-informativo" id="AnotacoesCompletas-H1"></h1>          <h2 class="h2-informativo" id="AnotacoesCompletas-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="AnotacoesCompletas-T1">          <thead>          <th>Ocorrrência</th><th>Data</th><th>Quantidade</th><th>Valor</th>          </thead>          <tbody>          <tr><td align='left'>Falências</td><td align='left' colspan='3'>Não constam ocorrências</td></tr><tr><td align='left'>Falências e Concordatas</td><td align='left' colspan='3'>Não constam ocorrências</td></tr><tr><td align='left'>Ações Judiciais</td><td align='left' colspan='3'>Não constam ocorrências</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo">Dívidas com Bancos e Empresas</h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="AnotacoesNegativas-S">          <h1 class="h1-informativo" id="AnotacoesNegativas-H1"></h1>          <h2 class="h2-informativo" id="AnotacoesNegativas-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="AnotacoesNegativas-T1">          <thead>          <th>Ocorrrência</th><th>Data</th><th>Quantidade</th><th>Valor</th>          </thead>          <tbody>          <tr><td align='left'>Dívidas Vencidas</td><td align='left' colspan='3'>Não constam ocorrências</td></tr><tr><td align='left'>Pendências Pefin</td><td align='left' colspan='3'>Não constam ocorrências</td></tr><tr><td align='left'>Pendências Refin</td><td align='left' colspan='3'>Não constam ocorrências</td></tr><tr><td align='left'>Protestos</td><td align='left' colspan='3'>Não constam ocorrências</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo">Consultas na Serasa Experian</h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="ConsultasDetalhadas-S">          <h1 class="h1-informativo" id="ConsultasDetalhadas-H1"></h1>          <h2 class="h2-informativo" id="ConsultasDetalhadas-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="ConsultasDetalhadas-T1">          <thead>                    </thead>          <tbody>          <tr><th style='text-align:center;'>AGO/23</th><th style='text-align:center;'>JUL/23</th><th style='text-align:center;'>JUN/23</th><th style='text-align:center;'>MAI/23</th><th style='text-align:center;'>ABR/23</th><th style='text-align:center;'>MAR/23</th><th style='text-align:center;'>FEV/23</th><th style='text-align:center;'>JAN/23</th><th style='text-align:center;'>DEZ/22</th><th style='text-align:center;'>NOV/22</th><th style='text-align:center;'>OUT/22</th><th style='text-align:center;'>SET/22</th><th style='text-align:center;'>AGO/22</th><th style='text-align:center;'>JUL/22</th></tr><tr><td style='text-align:center;'>36</td><td style='text-align:center;'>77</td><td style='text-align:center;'>95</td><td style='text-align:center;'>114</td><td style='text-align:center;'>85</td><td style='text-align:center;'>105</td><td style='text-align:center;'>76</td><td style='text-align:center;'>82</td><td style='text-align:center;'>88</td><td style='text-align:center;'>78</td><td style='text-align:center;'>80</td><td style='text-align:center;'>100</td><td style='text-align:center;'>106</td><td style='text-align:center;'>94</td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="Consultas-S">          <h1 class="h1-informativo" id="Consultas-H1"></h1>          <h2 class="h2-informativo" id="Consultas-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="Consultas-T1">          <thead>          <tr><th style="text-align:center;">Data</th><th style="text-align:left;">CNPJ</th><th style="text-align:left;">Razão Social</th></tr>          </thead>          <tbody>          <tr><td style="text-align:center;">10/08/2023</td><td style="text-align:left;">00.000.000/2818-18</td><td style="text-align:left;">CGS EMBALAGENS PLASTICAS IND__SPC&SPC__COM</td></tr><tr><td style="text-align:center;">10/08/2023</td><td style="text-align:left;">00.000.011/1936-84</td><td style="text-align:left;">GAVEA SECURITIZADORA S/A</td></tr><tr><td style="text-align:center;">10/08/2023</td><td style="text-align:left;">00.000.033/1640-21</td><td style="text-align:left;">TOKIO MARINE SEGURADORA</td></tr><tr><td style="text-align:center;">09/08/2023</td><td style="text-align:left;">00.000.003/9826-56</td><td style="text-align:left;">NOXON DO BRASIL QUIMICA__SPC&SPC__FARMACEUT</td></tr><tr><td style="text-align:center;">09/08/2023</td><td style="text-align:left;">00.000.008/3486-09</td><td style="text-align:left;">CIMSAL COM IND MOAGEM REFINACAO STA</td></tr>          </tbody>          </table>          </div>          <div class="table_responsive">          <table class="tabela_resposta_consulta_vh" id="Consultas-T2">          <tbody>          <tr><td>Total por Empresa: 512&nbsp;&nbsp;&nbsp;Total por Financeira: 0&nbsp;&nbsp;&nbsp;</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo">Histórico de Pagamentos Comercial</h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="HistoricoPagamentosComercialCompromisso-S">          <h1 class="h1-informativo" id="HistoricoPagamentosComercialCompromisso-H1">Compromisso</h1>          <h2 class="h2-informativo" id="HistoricoPagamentosComercialCompromisso-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="HistoricoPagamentosComercialCompromisso-T1">          <thead>                    </thead>          <tbody>          <tr><th style='text-align:center;'>D20</th></tr><tr><td style='text-align:center;'>R$ 100.000.000,00 a R$ 200.000.000,00</td></tr><tr><td style='text-align:center;'>À vista : 2,00%</td></tr><tr><td style='text-align:center;'>Parcelado : 98,00%</td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="HistoricoPagamentosComercialPontualidade-S">          <h1 class="h1-informativo" id="HistoricoPagamentosComercialPontualidade-H1">Pontualidade</h1>          <h2 class="h2-informativo" id="HistoricoPagamentosComercialPontualidade-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="HistoricoPagamentosComercialPontualidade-T1">          <thead>                    </thead>          <tbody>          <tr><th style='text-align:center;'>D20</th></tr><tr><td style='text-align:center;'>R$ 100.000.000,00 a R$ 200.000.000,00</td></tr><tr><td style='text-align:center;'>Pontual : 99,00%</td></tr><tr><td style='text-align:center;'>Em atraso : 1,00%</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section><section class="card">          <h1 class="h1-informativo">Histórico de Pagamentos Finaceiro</h1>          <div class="table_responsive">          <table class="tabela_resposta_consulta">          <tbody><tr><td><section class="card" id="HistoricoPagamentosFinanceiroCompromissoTotal-S">          <h1 class="h1-informativo" id="HistoricoPagamentosFinanceiroCompromissoTotal-H1">Compromissos - Total</h1>          <h2 class="h2-informativo" id="HistoricoPagamentosFinanceiroCompromissoTotal-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="HistoricoPagamentosFinanceiroCompromissoTotal-T1">          <thead>                    </thead>          <tbody>          <tr><th style='text-align:center;'>E1</th></tr><tr><td style='text-align:center;'>R$700 MI a R$800 MI</td></tr><tr><td style='text-align:center;'>A12</td></tr><tr><td style='text-align:center;'>150 a 200</td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="HistoricoPagamentosFinanceiroCompromissoParcelas-S">          <h1 class="h1-informativo" id="HistoricoPagamentosFinanceiroCompromissoParcelas-H1">Compromissos - Parcelas</h1>          <h2 class="h2-informativo" id="HistoricoPagamentosFinanceiroCompromissoParcelas-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="HistoricoPagamentosFinanceiroCompromissoParcelas-T1">          <thead>                    </thead>          <tbody>          <tr><td style='text-align:center;'>Pagas : 47</td></tr><tr><td style='text-align:center;'>A Vencer : 53</td></tr><tr><td style='text-align:center;'>Em Aberto : 0</td></tr>                    </tbody>          </table>          </div>         </section><section class="card" id="HistoricoPagamentosFinanceiroPontualidade-S">          <h1 class="h1-informativo" id="HistoricoPagamentosFinanceiroPontualidade-H1">Pontualidade - Contratos Ativos</h1>          <h2 class="h2-informativo" id="HistoricoPagamentosFinanceiroPontualidade-H2"></h2>          <div class="table_responsive">          <table class="tabela_resposta_consulta" id="HistoricoPagamentosFinanceiroPontualidade-T1">          <thead>                    </thead>          <tbody>          <tr><th style='text-align:center;'>D22</th></tr><tr><td style='text-align:center;'>R$300 MI a R$400 MI</td></tr><tr><td style='text-align:center;'>Rotativo : Entre 1% e 3%</td></tr><tr><td style='text-align:center;'>Parcelado Pontual : Entre 85% e 87%</td></tr><tr><td style='text-align:center;'>Parcelado em Atraso : Entre 9% e 11%</td></tr>                    </tbody>          </table>          </div>         </section></td></tr></tbody>          </table>          </div>         </section>        <section class="card">       <center>        <div style="font-size: 20px;color:#539D00;">         <span>Aviso importante:</span>        </div>        <h2>         Estas informações são confidenciais e deverão ser utilizadas apenas como orientação em transações comerciais do usuário. Este deve responsabilizar-se civil e criminalmente pelos danos utilizados em desacordo com a legislação em vigor.         </h2>   

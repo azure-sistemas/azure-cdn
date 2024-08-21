@@ -1,0 +1,61 @@
+{
+  "_args": [
+    [
+      "devexpress-reporting@21.2.6",
+      "D:\\Azure_Codigo_Fonte\\Azure Sistemas\\AzureSistemas"
+    ]
+  ],
+  "_from": "devexpress-reporting@21.2.6",
+  "_id": "devexpress-reporting@21.2.6",
+  "_inBundle": false,
+  "_integrity": "sha512-AkUThJBpBu4iRqlTQ11MI6IFVrU7wbqcsQYTLD8LRyAGTSPsi8ZrLdTY5UmolnWJtKXJPR5MWPh5nQBVhuKYEA==",
+  "_location": "/devexpress-reporting",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "devexpress-reporting@21.2.6",
+    "name": "devexpress-reporting",
+    "escapedName": "devexpress-reporting",
+    "rawSpec": "21.2.6",
+    "saveSpec": null,
+    "fetchSpec": "21.2.6"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/devexpress-reporting/-/devexpress-reporting-21.2.6.tgz",
+  "_spec": "21.2.6",
+  "_where": "D:\\Azure_Codigo_Fonte\\Azure Sistemas\\AzureSistemas",
+  "author": {
+    "name": "Developer Express Inc."
+  },
+  "bugs": {
+    "url": "https://www.devexpress.com/support/"
+  },
+  "dependencies": {
+    "ace-builds": "^1.3.0",
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "knockout": "~3.5.0"
+  },
+  "description": "DevExpress Reporting provides the capability to develop a reporting application to create and customize reports.",
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  },
+  "homepage": "https://www.devexpress.com/",
+  "keywords": [
+    "xtrareports",
+    "reports",
+    "analytics",
+    "reporting",
+    "devexpress"
+  ],
+  "license": "SEE LICENSE IN README.md",
+  "main": "./index.js",
+  "name": "devexpress-reporting",
+  "peerDependencies": {
+    "@devexpress/analytics-core": "21.2.6"
+  },
+  "version": "21.2.6"
+}

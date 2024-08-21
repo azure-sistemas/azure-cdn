@@ -1,0 +1,340 @@
+﻿:root {
+    --aberto: #0088cc;
+    --vence-hoje: #4a4e69;
+    --atrasado: #d2322d;
+    --quitado: #47a447;
+    --cancelado: #e9ecef;
+}
+
+body {
+    height: 100vh;
+}
+
+.body, .inner-wrapper, .content-body {
+    height: auto;
+}
+
+.content-body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#conferenciaPagtosLanctoQuitado i {
+    display: block !important;
+}
+
+.dx-popup-content .card-header {
+    min-height: auto;
+}
+
+#panelMenu button {
+    min-height: 80px;
+}
+
+#panelMenu i {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.card-header {
+    min-height: auto;
+}
+
+.dx-lookup-field {
+    line-height: 16px;
+}
+
+.cor-legenda {
+    width: 18px;
+}
+
+.text-legenda {
+    width: 68px;
+    padding: 4px;
+}
+
+.margin-top-zero-labelMode-floating .dx-editor-outlined.dx-texteditor-with-floating-label {
+    margin-top: 0 !important;
+}
+
+.font-warning {
+    color: var(--red);
+    font-weight: 700 !important;
+}
+
+.daterangepicker {
+    font-family: var(--font-family-sans-serif) !important;
+}
+
+.dateRange {
+    height: 26px !important;
+    width: 160px !important;
+    text-align: center !important;
+    cursor: pointer;
+}
+
+    .dateRange:hover {
+        border-color: rgba(51,122,183,.4);
+    }
+
+    .dateRange:focus {
+        border-color: #337ab7;
+        outline: none;
+    }
+
+.removeColumnsFilterHidden .dx-visibility-hidden {
+    display: none !important;
+}
+
+.removeColumnsFilterHidden .dx-header-row .dx-sort-indicator.dx-header-filter-indicator.dx-text-content-alignment-left.dx-text-content-alignment-right {
+    max-width: calc(100% - 31px);
+}
+
+.status-indicator {
+    position: relative;
+    padding-left: 12px !important;
+}
+
+    .status-indicator:before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 7px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+
+.aberto:before {
+    background-color: var(--aberto);
+}
+
+.venceHoje:before {
+    background-color: var(--vence-hoje);
+}
+
+.atrasado:before {
+    background-color: var(--atrasado);
+}
+
+.quitado:before {
+    background-color: var(--quitado);
+}
+
+.cancelado:before {
+    background-color: var(--cancelado);
+}
+
+#gridParcelasPercentual .dx-datagrid-header-panel {
+    padding: 0;
+    background-color: rgba(235, 235, 235);
+}
+
+    #gridParcelasPercentual .dx-datagrid-header-panel .dx-toolbar {
+        margin: 0;
+        padding-top: 2px;
+        padding-right: 4px;
+        background-color: transparent;
+    }
+
+    #gridParcelasPercentual .dx-datagrid-header-panel .dx-toolbar-items-container {
+        height: 33px;
+    }
+
+#gridParcelasPercentual .informer {
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+#gridPagamentosLanctoQuitado .dx-datagrid-header-panel {
+    padding: 0;
+    background-color: rgba(235, 235, 235);
+}
+
+    #gridPagamentosLanctoQuitado .dx-datagrid-header-panel .dx-toolbar {
+        margin: 0;
+        padding-top: 2px;
+        padding-right: 4px;
+        background-color: transparent;
+    }
+
+    #gridPagamentosLanctoQuitado .dx-datagrid-header-panel .dx-toolbar-items-container {
+        height: 33px;
+    }
+
+#gridPagamentosLanctoQuitado .informer {
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+
+#gridRateioCentroCusto .dx-datagrid-header-panel {
+    padding: 0;
+    background-color: rgba(235, 235, 235);
+}
+
+    #gridRateioCentroCusto .dx-datagrid-header-panel .dx-toolbar {
+        margin: 0;
+        padding-top: 2px;
+        padding-right: 4px;
+        background-color: transparent;
+    }
+
+    #gridRateioCentroCusto .dx-datagrid-header-panel .dx-toolbar-items-container {
+        height: 33px;
+    }
+
+#gridRateioCentroCusto .informer {
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.panel-titulo {
+    height: 38px;
+    padding: 9px;
+    background: rgba(244, 244, 244);
+    border: 1px solid rgba(227, 227, 227);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.dx-list-item {
+    border-top: 1px solid lightGray;
+}
+
+.titulo-tabelas {
+    color: #f05b41;
+    font-weight: bold;
+}
+
+.titulo-list {
+    font-weight: bold;
+    /*color: #222f3e;*/
+    padding-bottom: 3px;
+    font-size: 11px;
+}
+
+.item-list {
+    font-size: 11px;
+    padding-bottom: 2px;
+    font-size: 11px;
+}
+
+.drop-down-button {
+    background-color: white;
+}
+
+.status_ativo {
+    color: black;
+    font-weight: normal;
+}
+
+.status_inativo {
+    color: #d00000;
+    font-weight: bold;
+}
+
+.filtro_titulos_parcial {
+    color: #d00000;
+    font-weight: bold;
+}
+
+.filtro_titulos_total {
+    font-weight: bold;
+}
+
+.dx-datagrid {
+    font: 9px verdana;
+}
+
+    .dx-datagrid td {
+        vertical-align: middle !important;
+        text-decoration: none;
+    }
+
+.column-data-grid {
+    vertical-align: middle !important;
+    text-decoration: none;
+}
+
+.dx-command-edit-with-icons .dx-link {
+    text-decoration: none;
+    vertical-align: middle !important;
+    font-size: 18px;
+    margin: 0 3px;
+}
+
+.ui-pnotify-text {
+    overflow-wrap: break-word;
+}
+
+.ui-pnotify-title {
+    font-weight: 600;
+}
+
+.ui-pnotify-icon {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .ui-pnotify-icon > span {
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        line-height: 50px !important;
+    }
+
+.ui-pnotify .notification {
+    min-height: 65px !important;
+}
+
+html .scroll-to-top {
+    right: 71px !important;
+    bottom: -11px;
+}
+
+    html .scroll-to-top:hover {
+        bottom: 0px;
+    }
+
+.danger * {
+    color: var(--danger);
+}
+
+#div_conferenciaParcelasValorTitulo .title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-texteditor-empty:not(dx-state-hover) .dx-placeholder,
+.dx-editor-outlined.dx-texteditor-with-floating-label.dx-state-focused.dx-texteditor-empty:not(dx-state-hover) .dx-placeholder {
+    display: block !important;
+}
+
+.dx-editor-outlined.dx-texteditor-with-floating-label.dx-dropdowneditor-active.dx-texteditor-empty.dx-invalid.dx-state-hover .dx-placeholder,
+.dx-editor-outlined.dx-texteditor-with-floating-label.dx-state-focused.dx-texteditor-empty.dx-invalid.dx-state-hover .dx-placeholder {
+    display: none !important;
+}
+
+#consultaTitulos {
+    display: none;
+}
+
+.min-width-button-custom{
+    min-width: 33px !important;
+}
